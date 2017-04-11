@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
-
+## [1.1.3] Unofficial - 2017-4-11
+###
+- Change nginx to 1.11.13
+- Change php-fpm to latest fpm alpine : 7.1.3
+- Prevent config files from being filled to infinity
 ## [1.1.2] - 2017-2-17
 ### Added
 - Bumped nginx version to 1.11.10
