@@ -20,8 +20,7 @@ fi
 
 # Set custom webroot
 if [ ! -z "$WEBROOT" ]; then
- webroot=$WEBROOT
- sed -i "s#root /var/www/html;#root ${webroot};#g" /etc/nginx/sites-available/default.conf
+ sed -i "s#root /var/www/html;#root ${WEBROOT};#g" /etc/nginx/sites-available/default.conf
 else
  webroot=/var/www/html
 fi
@@ -65,8 +64,8 @@ if [ ! -d "/var/www/html/.git" ]; then
 fi
 
 # Try auto install for composer
-if [ -f "$WEBROOT/composer.lock" ]; then
-  php composer.phar install --no-dev
+if [ -f "/var/www/html/composer.lock" ]; then
+  composer install --no-dev --working-dir=/var/www/html
 fi
 
 # Enable custom nginx config files if they exist
